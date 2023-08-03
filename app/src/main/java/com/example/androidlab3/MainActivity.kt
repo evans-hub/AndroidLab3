@@ -1,5 +1,6 @@
 package com.example.androidlab3
 
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -20,7 +21,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            setContentView(R.layout.ll)
+        } else {
+            setContentView(R.layout.activity_main)
+        }
 
         val dao = Movie_DB.getDatabase(application).movieDao()
         val repository = MovieRepository(dao)
