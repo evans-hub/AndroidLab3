@@ -10,6 +10,7 @@ import com.example.androidlab3.viewmodel.MVMFactory
 import com.example.androidlab3.model.Movie
 import com.example.androidlab3.repository.MovieRepository
 import com.example.androidlab3.viewmodel.MViewModel
+import com.google.android.material.textfield.TextInputLayout
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -29,17 +30,21 @@ class MainActivity : AppCompatActivity() {
         setupRecyclerView()
 
         Button.setOnClickListener {
-            val title = editTextTextPersonName.text.toString()
-            val genre = editTextTextPersonName2.text.toString()
+            val titleEditText = findViewById<TextInputLayout>(R.id.editTextTextPersonName).editText
+            val title = titleEditText?.text.toString()
+
+            val genreEditText = findViewById<TextInputLayout>(R.id.editTextTextPersonName2).editText
+            val genre = genreEditText?.text.toString()
 
             if (title.isNotBlank() && genre.isNotBlank()) {
                 val movie = Movie(title = title, genre = genre)
                 movieViewModel.insert(movie)
 
-                editTextTextPersonName.text.clear()
-                editTextTextPersonName2.text.clear()
+                titleEditText?.text?.clear()
+                genreEditText?.text?.clear()
             }
         }
+
     }
 
     private fun setupRecyclerView() {

@@ -9,6 +9,6 @@ interface MovieDao {
     @Insert
     suspend fun insert(movie: Movie)
 
-    @Query("SELECT * FROM movies")
+    @Query("SELECT * FROM movies ORDER BY id ASC")
     fun getAllMovies(): LiveData<List<Movie>>
 }
