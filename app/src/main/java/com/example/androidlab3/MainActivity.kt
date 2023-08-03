@@ -21,10 +21,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            setContentView(R.layout.ll)
+        setContentView(R.layout.activity_main)
+        val orientation = resources.configuration.orientation
+        if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            setTheme(R.style.Theme_Splash)
         } else {
-            setContentView(R.layout.activity_main)
+            setTheme(R.style.Theme_AndroidLab3)
         }
 
         val dao = Movie_DB.getDatabase(application).movieDao()
