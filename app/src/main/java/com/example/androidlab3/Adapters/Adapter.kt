@@ -8,12 +8,12 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidlab3.R
 import com.example.androidlab3.model.Movie
-import kotlinx.android.synthetic.main.item_movie.view.*
+import kotlinx.android.synthetic.main.movie.view.*
 
 class Adapter : ListAdapter<Movie, Adapter.MovieViewHolder>(MovieDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_movie, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.movie, parent, false)
         return MovieViewHolder(view)
     }
 

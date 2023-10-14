@@ -10,18 +10,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingHorizontal="6dp"
-        android:layout_marginTop="0dp"
         android:orientation="vertical">
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Movie title"
             android:id="@+id/editTextTextPersonName"
+            android:background="#AFB7B9"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             >
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="#AFB7B9"
                 android:inputType="textEmailAddress"
                 />
         </com.google.android.material.textfield.TextInputLayout>
@@ -38,12 +39,14 @@
             android:layout_height="wrap_content"
             android:hint="Movie Genre"
             android:id="@+id/editTextTextPersonName2"
+            android:background="#AFB7B9"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             >
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
+                android:background="#AFB7B9"
                 />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -55,11 +58,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:text="Save" />
+        android:text="SUBMIT" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="List of Movies"
+        android:text="All Movies"
         android:textColor="@color/purple_500"
         android:textStyle="bold"
         android:layout_marginLeft="10dp"
