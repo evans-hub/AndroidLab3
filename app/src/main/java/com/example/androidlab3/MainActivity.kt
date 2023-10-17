@@ -2,22 +2,22 @@ package com.example.androidlab3
 
 import android.content.res.Configuration
 import android.os.Bundle
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.androidlab3.data.Movie_DB
-import com.example.androidlab3.Adapters.Adapter
+import com.example.androidlab3.data.DB_Movie
+import com.example.androidlab3.Adapters.Movie_Adapter
 import com.example.androidlab3.viewmodel.MVMFactory
-import com.example.androidlab3.model.Movie
-import com.example.androidlab3.repository.MovieRepository
+import com.example.androidlab3.Model.Movie
+import com.example.androidlab3.repository.MovieRepo
 import com.example.androidlab3.viewmodel.MViewModel
-import com.google.android.material.textfield.TextInputLayout
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var movieViewModel: MViewModel
-    private lateinit var movieAdapter: Adapter
+    private lateinit var movieAdapter: Movie_Adapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,33 +29,34 @@ class MainActivity : AppCompatActivity() {
             setTheme(R.style.Theme_AndroidLab3)
         }
 
-        val dao = Movie_DB.getDatabase(application).movieDao()
-        val repository = MovieRepository(dao)
+        val dao = DB_Movie.getDatabase(application).movieDao()
+        val repository = MovieRepo(dao)
         movieViewModel = ViewModelProvider(this, MVMFactory(repository))
             .get(MViewModel::class.java)
 
         setupRecyclerView()
 
-        Button.setOnClickListener {
-            val titleEditText = findViewById<TextInputLayout>(R.id.editTextTextPersonName).editText
-            val title = titleEditText?.text.toString()
+        val titleEditText = findViewById<EditText>(R.id.editText1)
+        val genreEditText = findViewById<EditText>(R.id.editText2)
 
-            val genreEditText = findViewById<TextInputLayout>(R.id.editTextTextPersonName2).editText
-            val genre = genreEditText?.text.toString()
+        Button.setOnClickListener {
+            val title = titleEditText.text.toString()
+            val genre = genreEditText.text.toString()
 
             if (title.isNotBlank() && genre.isNotBlank()) {
-                val movie = Movie(title = title, genre = genre)
+                val movie = Movie(movieTitle = title, movieGenre = genre)
                 movieViewModel.insert(movie)
 
-                titleEditText?.text?.clear()
-                genreEditText?.text?.clear()
+                titleEditText.text.clear()
+                genreEditText.text.clear()
             }
         }
+
 
     }
 
     private fun setupRecyclerView() {
-        movieAdapter = Adapter()
+        movieAdapter = Movie_Adapter()
         recyclerView.apply {
             adapter = movieAdapter
             layoutManager = LinearLayoutManager(this@MainActivity)

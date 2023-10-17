@@ -6,11 +6,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.androidlab3.Model.Movie
 import com.example.androidlab3.R
-import com.example.androidlab3.model.Movie
 import kotlinx.android.synthetic.main.movie.view.*
 
-class Adapter : ListAdapter<Movie, Adapter.MovieViewHolder>(MovieDiffCallback()) {
+class Movie_Adapter : ListAdapter<Movie, Movie_Adapter.MovieViewHolder>(MovieDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.movie, parent, false)
@@ -25,8 +25,8 @@ class Adapter : ListAdapter<Movie, Adapter.MovieViewHolder>(MovieDiffCallback())
     inner class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(movie: Movie) {
             itemView.apply {
-                tvTitle.text = movie.title
-                tvGenre.text = movie.genre
+                tvTitle.text = movie.movieTitle
+                tvGenre.text = movie.movieGenre
             }
         }
     }

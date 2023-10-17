@@ -4,23 +4,23 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.androidlab3.model.Movie
+import com.example.androidlab3.Model.Movie
 
 @Database(entities = [Movie::class], version = 1)
-abstract class Movie_DB : RoomDatabase() {
+abstract class DB_Movie : RoomDatabase() {
 
-    abstract fun movieDao(): MovieDao
+    abstract fun movieDao(): Dao_Movie
 
     companion object {
         @Volatile
-        private var INSTANCE: Movie_DB? = null
+        private var INSTANCE: DB_Movie? = null
 
-        fun getDatabase(context: Context): Movie_DB {
+        fun getDatabase(context: Context): DB_Movie {
             return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
-                    Movie_DB::class.java,
-                    "movie_db"
+                    DB_Movie::class.java,
+                    "film_db"
                 ).build()
                 INSTANCE = instance
                 instance

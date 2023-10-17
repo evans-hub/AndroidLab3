@@ -3,11 +3,11 @@ package com.example.androidlab3.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.androidlab3.model.Movie
-import com.example.androidlab3.repository.MovieRepository
+import com.example.androidlab3.Model.Movie
+import com.example.androidlab3.repository.MovieRepo
 import kotlinx.coroutines.launch
 
-class MViewModel(private val repository: MovieRepository) : ViewModel() {
+class MViewModel(private val repository: MovieRepo) : ViewModel() {
 
     val allMovies: LiveData<List<Movie>> = repository.allMovies
 

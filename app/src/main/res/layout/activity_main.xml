@@ -5,78 +5,55 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
+    android:background="@android:color/background_light"
     tools:context=".MainActivity">
-    <LinearLayout
+
+    <EditText
+        android:id="@+id/editText1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="6dp"
-        android:orientation="vertical">
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Movie title"
-            android:id="@+id/editTextTextPersonName"
-            android:background="#AFB7B9"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            >
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#AFB7B9"
-                android:inputType="textEmailAddress"
-                />
-        </com.google.android.material.textfield.TextInputLayout>
+        android:layout_margin="16dp"
+        android:ems="10"
+        android:hint="Enter Movie Title"
+        android:inputType="text" />
 
-    </LinearLayout>
-    <LinearLayout
+    <EditText
+        android:id="@+id/editText2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="6dp"
-        android:layout_marginTop="0dp"
-        android:orientation="vertical">
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Movie Genre"
-            android:id="@+id/editTextTextPersonName2"
-            android:background="#AFB7B9"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            >
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
-                android:background="#AFB7B9"
-                />
-        </com.google.android.material.textfield.TextInputLayout>
-
-    </LinearLayout>
+        android:layout_margin="16dp"
+        android:ems="10"
+        android:hint="Enter Movie Genre"
+        android:inputType="text" />
 
     <Button
         android:id="@+id/Button"
-        android:background="@drawable/back"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:text="SUBMIT" />
+        android:layout_margin="16dp"
+        android:layout_gravity="center"
+        android:background="@drawable/card"
+        android:text="Save" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="All Movies"
-        android:textColor="@color/purple_500"
-        android:textStyle="bold"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:textSize="20sp"/>
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+        android:layout_marginTop="6dp"
+        android:textSize="20sp"
+        android:text="Movies"
+        android:textColor="@color/purple_500" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="0dp"
-        android:layout_marginTop="0dp"/>
-</ScrollView>
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:layout_marginTop="16dp" />
+    </ScrollView>
+
 </LinearLayout>
