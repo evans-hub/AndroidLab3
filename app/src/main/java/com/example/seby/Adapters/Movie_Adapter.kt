@@ -1,4 +1,4 @@
-package com.example.androidlab3.Adapters
+package com.example.seby.Adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,11 +6,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.androidlab3.Model.Movie
 import com.example.androidlab3.R
+import com.example.seby.Model.Movie
 import kotlinx.android.synthetic.main.movie.view.*
 
-class Movie_Adapter : ListAdapter<Movie, Movie_Adapter.MovieViewHolder>(MovieDiffCallback()) {
+class MovieAdapter : ListAdapter<Movie, MovieAdapter.MovieViewHolder>(MovieDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.movie, parent, false)

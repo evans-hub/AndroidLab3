@@ -1,4 +1,4 @@
-package com.example.androidlab3.Model
+package com.example.seby.Model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -10,3 +10,5 @@ data class Movie(
     val movieTitle: String,
     val movieGenre: String
 )
+
+
